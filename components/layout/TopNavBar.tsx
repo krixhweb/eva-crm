@@ -123,6 +123,12 @@ const TopNavBar: React.FC = () => {
       }
   };
 
+  const handleSettingsClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setProfileOpen(false);
+    navigate('/settings');
+  };
+
   return (
     <header className="h-16 flex items-center justify-between px-6 flex-shrink-0 z-10 bg-white dark:bg-[#09090b] transition-colors duration-300">
       {/* Left Section */}
@@ -264,7 +270,7 @@ const TopNavBar: React.FC = () => {
               </div>
               <div className="p-1">
                 <a href="#" className="flex items-center gap-3 px-4 py-2 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-white/5 dark:text-gray-300 transition-colors"><Icon name="user" className="w-4 h-4"/> My Profile</a>
-                <a href="#" className="flex items-center gap-3 px-4 py-2 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-white/5 dark:text-gray-300 transition-colors"><Icon name="settings" className="w-4 h-4"/> Settings</a>
+                <button onClick={handleSettingsClick} className="flex w-full items-center gap-3 px-4 py-2 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-white/5 dark:text-gray-300 transition-colors"><Icon name="settings" className="w-4 h-4"/> Settings</button>
               </div>
               <div className="p-1 border-t dark:border-dark-border">
                 <a href="#" className="flex items-center gap-3 px-4 py-2 text-sm rounded-md text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"><Icon name="logout" className="w-4 h-4"/> Logout</a>

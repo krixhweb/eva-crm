@@ -56,6 +56,8 @@ import MarketingAutomationPage from './modules/automation/MarketingAutomationPag
 import ServiceAutomationPage from './modules/automation/ServiceAutomationPage';
 
 // Settings
+import { SettingsLayout } from './modules/settings/SettingsLayout';
+import GeneralSettingsPage from './modules/settings/GeneralSettingsPage';
 import IntegrationsPage from './modules/settings/IntegrationsPage';
 import AdminSecurityPage from './modules/settings/AdminSecurityPage';
 import ApiWebhooksPage from './modules/settings/ApiWebhooksPage';
@@ -123,11 +125,14 @@ const AppContent: React.FC = () => {
           <Route path="/automation/marketing" element={<MarketingAutomationPage />} />
           <Route path="/automation/service" element={<ServiceAutomationPage />} />
 
-          {/* Settings */}
-          <Route path="/settings" element={<Navigate to="/settings/integrations" replace />} />
-          <Route path="/settings/integrations" element={<IntegrationsPage />} />
-          <Route path="/settings/admin" element={<AdminSecurityPage />} />
-          <Route path="/settings/api" element={<ApiWebhooksPage />} />
+          {/* Settings - Nested Layout */}
+          <Route path="/settings" element={<SettingsLayout />}>
+            <Route index element={<Navigate to="/settings/general" replace />} />
+            <Route path="general" element={<GeneralSettingsPage />} />
+            <Route path="integrations" element={<IntegrationsPage />} />
+            <Route path="admin" element={<AdminSecurityPage />} />
+            <Route path="api" element={<ApiWebhooksPage />} />
+          </Route>
 
           {/* Fallback */}
           <Route path="*" element={<PlaceholderPage title="404 - Not Found" />} />

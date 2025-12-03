@@ -101,16 +101,6 @@ const navGroups: NavGroup[] = [
       { label: 'Service Automation', path: '/automation/service', icon: 'lifeBuoy', breadcrumb: ['Automation', 'Service Automation'] },
     ],
   },
-  {
-    title: 'Settings',
-    icon: 'settings',
-    defaultOpen: false,
-    items: [
-      { label: 'Integrations', path: '/settings/integrations', icon: 'settings', breadcrumb: ['Settings', 'Integrations'] },
-      { label: 'Admin & Security', path: '/settings/admin', icon: 'settings', breadcrumb: ['Settings', 'Admin & Security'] },
-      { label: 'APIs & Webhooks', path: '/settings/api', icon: 'settings', breadcrumb: ['Settings', 'APIs & Webhooks'] },
-    ],
-  },
 ];
 
 const MIN_WIDTH = 200;
