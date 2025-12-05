@@ -2,6 +2,7 @@
 import React from 'react';
 import { cn } from '../../lib/utils';
 import {
+  House,
   ChartBar,
   SquaresFour,
   Users,
@@ -95,16 +96,10 @@ import {
   MapPin,
   Star,
   Clock,
-  WhatsappLogo,
-  House
+  WhatsappLogo
 } from '@phosphor-icons/react';
 
-interface IconProps extends React.HTMLAttributes<HTMLSpanElement> {
-  name: string;
-  className?: string;
-}
-
-const icons = {
+const iconMap: Record<string, React.ElementType> = {
   home: House,
   analytics: ChartBar,
   dashboard: SquaresFour,
@@ -207,21 +202,29 @@ const icons = {
   whatsapp: WhatsappLogo
 };
 
-const Icon: React.FC<IconProps> & { icons: typeof icons } = ({ name, className, ...props }) => {
-  const IconComponent = icons[name as keyof typeof icons];
-  
-  if (!IconComponent) {
+export interface IconProps extends React.HTMLAttributes<HTMLSpanElement> {
+  name: string;
+  className?: string;
+  size?: number | string;
+  weight?: 'thin' | 'light' | 'regular' | 'bold' | 'fill' | 'duotone';
+}
+
+const IconComponent: React.FC<IconProps> = ({ name, className, size, weight = 'regular', ...props }) => {
+  const Component = iconMap[name];
+
+  if (!Component) {
     console.warn(`Icon "${name}" not found`);
-    return null;
+    return <Info className={className} size={size} weight={weight} {...props} />;
   }
 
   return (
-    <span {...props} className={cn("inline-flex items-center justify-center", className)}>
-        <IconComponent className="w-full h-full" weight="regular" />
+    <span className={cn("inline-flex items-center justify-center", className)} {...props}>
+      <Component weight={weight} className="w-full h-full" />
     </span>
   );
 };
 
-Icon.icons = icons;
+// Attach icons map for compatibility with components that check `Icon.icons`
+const Icon = Object.assign(IconComponent, { icons: iconMap });
 
 export { Icon };
