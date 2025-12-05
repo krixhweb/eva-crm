@@ -51,15 +51,15 @@ const navGroups: NavGroup[] = [
       { 
           label: 'Channel Marketing', 
           path: '#', 
-          icon: 'send', 
+          icon: 'globe', 
           breadcrumb: ['Marketing', 'Channel Marketing'],
           subItems: [
-              { label: 'Email Marketing', path: '/marketing/channel/email', icon: 'mail', breadcrumb: ['Marketing', 'Channel Marketing', 'Email'] },
-              { label: 'WhatsApp Marketing', path: '/marketing/channel/whatsapp', icon: 'messageCircle', breadcrumb: ['Marketing', 'Channel Marketing', 'WhatsApp'] },
-              { label: 'Social Publisher', path: '/marketing/channel/social', icon: 'share', breadcrumb: ['Marketing', 'Channel Marketing', 'Social'] },
+              { label: 'Email Marketing', path: '/marketing/channel/email', icon: 'paperPlaneTilt', breadcrumb: ['Marketing', 'Channel Marketing', 'Email'] },
+              { label: 'WhatsApp Marketing', path: '/marketing/channel/whatsapp', icon: 'whatsapp', breadcrumb: ['Marketing', 'Channel Marketing', 'WhatsApp'] },
+              { label: 'Social Publisher', path: '/marketing/channel/social', icon: 'fediverse', breadcrumb: ['Marketing', 'Channel Marketing', 'Social'] },
           ]
       },
-      { label: 'Coupon Management', path: '/marketing/coupons', icon: 'ticket', breadcrumb: ['Marketing', 'Coupon Management'] },
+      { label: 'Coupon Management', path: '/marketing/coupons', icon: 'gift', breadcrumb: ['Marketing', 'Coupon Management'] },
     ],
   },
   {
@@ -67,7 +67,7 @@ const navGroups: NavGroup[] = [
     icon: 'dollarSign',
     defaultOpen: false,
     items: [
-      { label: 'Leads Pipeline', path: '/sales/pipeline', icon: 'pipeline', breadcrumb: ['Sales', 'Leads Pipeline'] },
+      { label: 'Leads Pipeline', path: '/sales/pipeline', icon: 'kanban', breadcrumb: ['Sales', 'Leads Pipeline'] },
       { label: 'Performance & Activity', path: '/sales/analytics', icon: 'analytics', breadcrumb: ['Sales', 'Performance & Activity'] },
     ],
   },
@@ -93,7 +93,7 @@ const navGroups: NavGroup[] = [
   },
   {
     title: 'Automation',
-    icon: 'zap',
+    icon: 'headCircuit',
     defaultOpen: false,
     items: [
       { label: 'Workflow Builder', path: '/automation/workflows', icon: 'workflow', breadcrumb: ['Automation', 'Workflow Builder'] },

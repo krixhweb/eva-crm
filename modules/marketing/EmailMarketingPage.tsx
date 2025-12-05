@@ -18,7 +18,6 @@ import { mockEmailCampaigns } from '../../data/emailMockData';
 import type { EmailCampaign } from '../../types';
 import { useGlassyToasts } from '../../components/ui/GlassyToastProvider';
 import ConfirmationDialog from '../../components/modals/ConfirmationDialog';
-import { EmailAnalyticsTab } from './components/channel/EmailAnalyticsTab';
 
 const DEFAULT_FILTERS: EmailFiltersState = {
     status: [],
@@ -230,7 +229,6 @@ const EmailMarketingPage: React.FC = () => {
                 <TabsList className="mb-6">
                     <TabsTrigger value="campaigns">Campaigns</TabsTrigger>
                     <TabsTrigger value="templates">Templates</TabsTrigger>
-                    <TabsTrigger value="analytics">Analytics</TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="campaigns" className="space-y-6">
@@ -369,7 +367,7 @@ const EmailMarketingPage: React.FC = () => {
                                                                     <DropdownMenuItem onClick={() => handleDuplicate(c)}>
                                                                         <Icon name="copy" className="w-4 h-4 mr-2"/> Duplicate
                                                                     </DropdownMenuItem>
-                                                                    <DropdownMenuItem className="text-red-600 focus:text-red-600" onClick={() => setDeleteTarget(c.id)}>
+                                                                    <DropdownMenuItem className="text-red-600 focus:text-red-600 focus:bg-red-50" onClick={() => setDeleteTarget(c.id)}>
                                                                         <Icon name="trash" className="w-4 h-4 mr-2"/> Delete
                                                                     </DropdownMenuItem>
                                                                 </DropdownMenuContent>
@@ -401,10 +399,6 @@ const EmailMarketingPage: React.FC = () => {
                 
                 <TabsContent value="templates" className="mt-6">
                     <EmailTemplatesTab />
-                </TabsContent>
-                
-                <TabsContent value="analytics" className="mt-6">
-                     <EmailAnalyticsTab />
                 </TabsContent>
             </Tabs>
 
